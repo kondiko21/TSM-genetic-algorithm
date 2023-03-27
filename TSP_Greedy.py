@@ -22,7 +22,6 @@ unvisited.remove(current)
 
 
 for _ in range(amount-1):
-    printPath(unvisited)
     minValue = current.distanceTo(random.choice(unvisited))
     for city in unvisited:
         currentDistance = current.distanceTo(city)
@@ -37,6 +36,6 @@ for _ in range(amount-1):
 visited.append(visited[0])
 distance += current.distanceTo(visited[0])
 
-printPath(visited)
+tsp.printPath(visited)
 print("\nDistance is: " + str(distance))
 
