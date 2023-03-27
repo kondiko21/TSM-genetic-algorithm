@@ -1,16 +1,9 @@
 import random
 import TSP_Config as tsp
 
-# opening file
-plik = open("instancja.txt", "r")
-amount = int(plik.readline().strip())
-
-# creating points in cities array
-cities = []
-for linia in plik:
-    data = linia.split()
-    city = tsp.Point(int(data[0]), int(data[1]), int(data[2]))
-    cities.append(city)
+imp = tsp.importDataFrom("import.txt")
+cities = imp[0]
+amount = imp[1]
 
 # greedy algorithm
 unvisited = cities
