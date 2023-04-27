@@ -12,19 +12,22 @@ def preparareTestingSet(name, amount):
         print(round(val))
 
 
-def generateInstances(toFile, size):
+def generateInstances(toFile, size, mapSize):
     list = []
-    file = open(toFile+".txt\n", "w")
+    file = open(toFile+".txt", "w+")
     file.write(str(size)+"\n")
-    for i in range(size):
+    i = 0
+    while i < size:
         # mapSize = round(math.log(size)*100)
-        mapSize = 100
         X = random.randint(0, mapSize)
         Y = random.randint(0, mapSize)
         coords = (X,Y)
         if coords not in list:
             list.append(coords)
             file.write(str(i+1)+" "+str(X)+" "+str(Y)+"\n")
+        else:
+            i -= 1
+        i += 1
 
         # print(str(X)+" "+str(Y))
 
