@@ -1,8 +1,8 @@
 import math
+import matplotlib.pyplot as plt
 
 # coordinates class
 import random
-
 
 class Point:
     def __init__(self, id, x, y):
@@ -11,7 +11,7 @@ class Point:
         self.y = y
 
     def distanceTo(self, secondPoint):
-        distance = (((self.x - secondPoint.x) ** 2 + (self.y - secondPoint.y) ** 2)) ** 0.5
+        distance = math.hypot(self.x - secondPoint.x, self.y - secondPoint.y)
         return distance
 
     def print(self):
@@ -63,3 +63,20 @@ def importDataFrom(file):
         cities.append(city)
 
     return [cities, amount]
+
+def configureGraph():
+    plt.ion()
+
+def displayPath(path, p):
+
+    xCoords = []
+    yCoords = []
+    xCoords.append(path.startPoint.x)
+    yCoords.append(path.startPoint.y)
+    for city in path.points:
+        xCoords.append(city.x)
+        yCoords.append(city.y)
+    xCoords.append(path.startPoint.x)
+    yCoords.append(path.startPoint.y)
+    plt.plot(xCoords, yCoords, p)
+    plt.show()

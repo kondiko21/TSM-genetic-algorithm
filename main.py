@@ -3,12 +3,12 @@ import random
 import instanceGenerator
 import TSP_Greedy as greedy
 import TSP_GA as ga
-
+file = "pr264"
 
 # instanceGenerator.preparareTestingSet("testset/set", 10)
 # instanceGenerator.generateInstances("instancjam", 20, 40)
 # instanceGenerator.generateInstances("instancja5000", 5000, 500)
-# greedy.greedyAlgorithm("bier127")
+greedy.greedyAlgorithm(file)
 # greedy.greedyAlgorithm("tsp250")
 # greedy.greedyAlgorithm("XD/instancja2")
 #
@@ -18,7 +18,7 @@ import TSP_GA as ga
 # ga.crossover()
 
 
-tspSolver = ga.GeneticAlgorithm('tsp250')
+tspSolver = ga.GeneticAlgorithm(file)
 tspSolver.run()
 # tspSolver.importCities()
 # tspSolver.generatePopulation()
